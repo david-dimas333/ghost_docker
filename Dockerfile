@@ -1,6 +1,6 @@
 FROM ptimof/ghost
 
-MAINTAINER Bixlabs, lclavijo@bixlabs.com
+MAINTAINER David, david.dimas333@gmail.com
 
 ENV DIR /usr/src/ghost
 WORKDIR $DIR
@@ -9,9 +9,9 @@ WORKDIR $DIR
 ADD screen.css /usr/src/ghost/content/themes/casper/assets/css/screen.css
 ADD ghost.css /usr/src/ghost/core/built/assets/ghost.css
 ADD post.hbs /usr/src/ghost/content/themes/casper/post.hbs
-ADD themes/interphase /usr/src/ghost/content/themes/
+COPY themes/interphase /usr/src/ghost/content/themes/interphase
 ADD config.example.js /usr/src/ghost/config.example.js
-ADD entrypoint.sh /entrypoint.sh
+#ADD entrypoint.sh /entrypoint.sh
 
 # currently only works for development
 ENV NODE_ENV development
