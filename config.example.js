@@ -12,24 +12,18 @@ config = {
         url: process.env.GHOST_URL,
         mail: {
             transport: 'SMTP',
-	    options: {
-		service: 'Gmail',
-		auth: {
-		    user: process.env.GHOST_MAIL_ACCOUNT,
-		    pass: process.env.GHOST_MAIL_AUTH
-		}
-	    },
+            options: {
+                host: process.env.MAIL_HOST
+            },
             from: process.env.MAIL_FROM
         },
+
         database: {
-            client: 'mysql',
+            client: 'sqlite3',
             connection: {
-                host     : process.env.MYSQL_SERVICE_HOST,
-                user     : process.env.MYSQL_USER,
-                password : process.env.MYSQL_PASSWORD,
-                database : process.env.MYSQL_DATABASE,
-                charset  : 'utf8'
-            }
+                filename: path.join(__dirname, '/content/data/ghost-dev.db')
+            },
+            debug: false
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
@@ -80,29 +74,18 @@ config = {
     // Used when developing Ghost to run tests and check the health of Ghost
     // Uses a different port number
     testing: {
-        url: 'http://127.0.0.1:2368',
+        url: 'http://127.0.0.1:2369',
         database: {
             client: 'sqlite3',
             connection: {
                 filename: path.join(__dirname, '/content/data/ghost-test.db')
             }
         },
-        mail: {
-            transport: 'SMTP',
-	    options: {
-		service: 'Gmail',
-		auth: {
-		    user: process.env.GHOST_MAIL_ACCOUNT,
-		    pass: process.env.GHOST_MAIL_AUTH
-		}
-	    },
-            from: process.env.MAIL_FROM
-        },
         server: {
             host: '127.0.0.1',
-            port: '2368'
+            port: '2369'
         },
-        logging: true
+        logging: false
     },
 
     // ### Travis
@@ -167,4 +150,3 @@ config = {
 
 // Export config
 module.exports = config;
-
