@@ -107,6 +107,11 @@
 	    			if (category.length < 1){
 	    			category = "undefined";
 					}
+
+					var str = String(arrayItem.url);
+					if(str.charAt(0) == '/')
+						str = str.substr(1);
+
 			        var parsedData 	= {
 						id 			: String(arrayItem.id),
 						title 		: String(arrayItem.title),
@@ -114,16 +119,22 @@
 						markdown 	: String(arrayItem.markdown),
 						pubDate 	: String(arrayItem.created_at),
 						tag 		: category,
-						link 		: String(arrayItem.url)
+						link 		: str
+						//link 		: String(arrayItem.url)
 					}
 					
 					parsedData.prettyPubDate = prettyDate(parsedData.pubDate);
 					var tempdate = prettyDate(parsedData.pubDate);
 
 				    index.add(parsedData)
-				    blogData[arrayItem.id] = {title: arrayItem.title, description: arrayItem.meta_description, pubDate: tempdate, link: arrayItem.url};
-            		});
-
+				    blogData[arrayItem.id] = {
+				    	title: arrayItem.title,
+				    	description: arrayItem.meta_description,
+				    	pubDate: tempdate,
+				    	link: str
+				    	//link: arrayItem.url
+				    };
+        		});
 			});
 
 			this.isInit = true;
