@@ -108,10 +108,6 @@
 	    			category = "undefined";
 					}
 
-					var str = String(arrayItem.url);
-					if(str.charAt(0) == '/')
-						str = str.substr(1);
-
 			        var parsedData 	= {
 						id 			: String(arrayItem.id),
 						title 		: String(arrayItem.title),
@@ -119,8 +115,7 @@
 						markdown 	: String(arrayItem.markdown),
 						pubDate 	: String(arrayItem.created_at),
 						tag 		: category,
-						link 		: str
-						//link 		: String(arrayItem.url)
+						link 		: String(arrayItem.url)
 					}
 					
 					parsedData.prettyPubDate = prettyDate(parsedData.pubDate);
@@ -131,8 +126,7 @@
 				    	title: arrayItem.title,
 				    	description: arrayItem.meta_description,
 				    	pubDate: tempdate,
-				    	link: str
-				    	//link: arrayItem.url
+				    	link: arrayItem.url
 				    };
         		});
 			});

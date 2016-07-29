@@ -449,6 +449,6 @@ function ghostHunter( $ ) {
 		results : '#search-result',
 		onKeyUp : true,
 		info_template   : "",
-		result_template : "<a href='{{link}}' class='search-item'><h4>{{title}}</h4><span>{{pubDate}}</span></a>",
+		result_template : "<a href='/community{{link}}' class='search-item'><h4>{{title}}</h4><span>{{pubDate}}</span></a>",
 	});
 }
