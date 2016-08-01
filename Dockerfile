@@ -11,3 +11,6 @@ RUN chown -R user $GHOST_SOURCE/content
 
 # Default environment variables
 ENV GHOST_URL http://apps.thedigitalgarage.io/community
+
+ENV MAIL_USER 
+ENV MAIL_PWD 

@@ -13,9 +13,12 @@ config = {
         mail: {
             transport: 'SMTP',
             options: {
-                host: process.env.MAIL_HOST
-            },
-            from: process.env.MAIL_FROM
+                service: 'Mailgun',
+                auth: {
+                    user: process.env.MAIL_USER,
+                    pass: process.env.MAIL_PWD
+                }
+            }
         },
 
         database: {
@@ -45,9 +48,12 @@ config = {
         mail: {
             transport: 'SMTP',
             options: {
-                host: process.env.MAIL_HOST
-            },
-            from: process.env.MAIL_FROM
+                service: 'Mailgun',
+                auth: {
+                    user: process.env.MAIL_USER,
+                    pass: process.env.MAIL_PWD
+                }
+            }
         },
         database: {
             client: 'sqlite3',

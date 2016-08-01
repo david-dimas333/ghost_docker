@@ -1404,6 +1404,7 @@ button[type="submit"]:hover {
 #navigation-bar .logo {
   float: left;
   padding: 9px 0;
+  outline: 0;
 }
 #navigation-bar .brand-logo {
   height: 44px;
@@ -2185,6 +2186,7 @@ button[type="submit"]:hover {
   color: #bfbfbf;
   display: block;
   padding: 8px 0;
+  outline: 0;
 }
 #colophon .widget li > a:after {
   content: "\f054";
