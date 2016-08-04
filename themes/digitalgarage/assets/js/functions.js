@@ -435,10 +435,25 @@ function quoteattr( s, preserveCR ) {
 function searchBtn( $ ) {
 	'use strict';
 
-	$( '#btn-search' ).click( function() {
-		$( '.search-form' ).toggleClass( 'active' );
-		$( 'body' ).toggleClass( 'open-search' );
-	} );
+	// $( '#btn-search' ).click( function() {
+	// 	$( '.search-form' ).toggleClass( 'active' );
+	// 	$( 'body' ).toggleClass( 'open-search' );
+	// } );
+
+	window.onclick = function(e) {
+		var target = $(e.target);
+		if (target.is('.search-form') || target.parents().is('.search-form')) {
+			return;
+		}
+		else if (target.is('#btn-search') || target.parents().is('#btn-search')) {
+			$( '.search-form' ).toggleClass( 'active' );
+			$( 'body' ).toggleClass( 'open-search' );
+		}
+		else {
+			$( '.search-form' ).removeClass( 'active' );
+			$( 'body' ).removeClass( 'open-search' );
+		}
+	}
 }
 
 function ghostHunter( $ ) {
