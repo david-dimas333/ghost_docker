@@ -21,8 +21,8 @@ RUN chown -R user $GHOST_SOURCE/content
 
 # Default environment variables
 ENV GHOST_URL http://apps.thedigitalgarage.io/community
-ENV MAIL_USER 
-ENV MAIL_PWD 
+ENV MAIL_USER postmaster@mg.thedigitalgarage.io
+ENV MAIL_PWD thedigitalgarage#!
 
 # Install GIT
 RUN apt-get update && apt-get install -y git
